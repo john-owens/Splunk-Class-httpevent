@@ -71,9 +71,10 @@ class http_event_collector:
         session.mount('https://', adapter)
         return session
 
-    def __init__(self,token,http_event_server,input_type='json',host="",http_event_port='8088',http_event_server_ssl=True):
+    def __init__(self,token,http_event_server,thread_count=10,input_type='json',host="",http_event_port='8088',http_event_server_ssl=True):
         self.token = token
         self.debug = False
+        self.threadCount = thread_count
         self.SSL_verify = False
         self.http_event_server = http_event_server
         self.http_event_server_ssl = http_event_server_ssl
